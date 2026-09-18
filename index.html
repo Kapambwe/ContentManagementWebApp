@@ -13,6 +13,16 @@
     <div id="app">Loading CMS...</div>
     <script src="_framework/blazor.webassembly.w3qd1tpl0e.js"></script>
     <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <script>
+        // If redirected from 404.html, restore path
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const path = params.get('path');
+            if (path) {
+                window.history.replaceState(null, '', '/ContentManagementWebApp' + decodeURIComponent(path));
+            }
+        })();
+    </script>
 </body>
 </html>
 
